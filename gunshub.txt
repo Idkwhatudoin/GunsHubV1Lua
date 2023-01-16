@@ -1,0 +1,100 @@
+-- like 3 minutes of brainfuck lolol
+-- dont leak or edit source without dev perms or u be ban and fingered!1!1!1!1
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Gun's Hub", "Sentinel")
+
+-- Tab
+
+local TabS = Window:NewTab("Scripts")
+local TabG = Window:NewTab("Games")
+local TabAS = Window:NewTab("API Support")
+local TabAE = Window:NewTab("API Exec")
+
+-- Sections
+
+local Section1 = TabS:NewSection("Scripts")
+local Section2= TabG:NewSection("Games")
+
+-- Api Support Sections
+
+local Section5 = TabAS:NewSection("Hydrogen API: Working")
+local Section6 = TabAS:NewSection("Fluxus Android API: Working")
+local Section7 = TabAS:NewSection("PC Exec APIS: Working")
+
+
+-- Api Exec Sections
+
+local Section3 = TabAE:NewSection("If ur to lazy use this executor, it uses ur exec api too")
+local Section4 = TabAE:NewSection("Status: Ready To Execute")
+
+-- TabS Buttons
+
+Section1:NewButton("Inf Jump", "gaming chair bounce", function()
+    InfiniteJumpEnabled = true
+game:GetService("UserInputService").JumpRequest:connect(function()
+	if InfiniteJumpEnabled then
+		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+	end
+end)
+end)
+
+Section1:NewButton("Noclip", "decline collision", function()
+    getgenv().noclip = game.RunService.Stepped:Connect(function()
+    if game.Players.LocalPlayer.Character then
+        for _,v in next, game.Players.LocalPlayer.Character:GetChildren() do -- GetDescendants is laggy
+            pcall(function()
+                if v:IsA("BasePart") and v.CanCollide  then
+                    v.CanCollide = false
+                end
+            end)
+        end
+    end
+end)
+
+-- getgenv().noclip:Disconnect() to disable
+end)
+
+Section1:NewButton("Fly", "explore the world", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
+end)
+
+-- TabG Buttons
+
+Section2:NewButton("Adopt Me", "adopt me script", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/BloxiYT/Diamond/main/AdoptMe"))()
+end)
+
+Section2:NewButton("Blox Fruits", "blox fruits script", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Sixnumz/ZamexMobile/main/Zamex_Mobile.lua'))()
+end)
+
+Section2:NewButton("Combat Warriors", "combat warriors script", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/SussyImposterRed/Scripts/main/NOVA_HUB_SOURCE"))()
+end)
+
+Section2:NewButton("Build A Boat", "build a boat script", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/0YezNNRh",true))()
+end)
+
+Section2:NewButton("BedWars", "bedwars script", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()
+end)
+
+Section2:NewButton("Evade", "evade script", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/MHD-444/Galaxy-Hub/main/Galaxy-Loader"))()
+end)
+
+Section2:NewButton("Doors", "doors script", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/JustDevT/Roblox/main/DOORS.lua",true))()
+end)
+
+-- TabAE Buttons
+
+Section3:NewTextBox("API Executor", "put the raw link u would like to execute", function(txt)
+	loadstring(game:HttpGet("(txt)"))()
+	wait(0.1)
+    Section4:UpdateSection("Executed!")
+    wait(3.5)
+    Section4:UpdateSection("Status: Ready To Execute")
+end)
